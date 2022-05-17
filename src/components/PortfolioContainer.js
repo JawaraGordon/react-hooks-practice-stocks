@@ -1,13 +1,21 @@
-import React from "react";
-import Stock from "./Stock";
+import React from 'react';
+import Stock from './Stock';
 
-function PortfolioContainer() {
+function PortfolioContainer({ stocks, handleRemoveStock }) {
+  console.log(stocks);
+
   return (
     <div>
       <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      <ul>
+        {stocks.map((stock) => (
+          <Stock
+            key={stock.id}
+            stock={stock}
+            onStockClick={handleRemoveStock}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
